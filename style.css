@@ -1,0 +1,385 @@
+/* -------------------
+   RESET
+------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2{
+    text-decoration: underline;
+}
+/* Make project cards clickable */
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+/* -------------------
+   BASE STYLES
+------------------- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f0f0f;
+    color: #ffffff;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+/* -------------------
+   HERO SECTION
+------------------- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+/* -------------------
+   TEXT
+------------------- */
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+
+.subtitle {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    font-family: monospace;
+}
+.divider {
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.4;
+    margin: 20px auto;
+}
+
+/* -------------------
+   BUTTONS
+------------------- */
+.buttons {
+    margin-top: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #0f0f0f;
+    background-color: #ffffff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #cccccc;
+}
+
+.btn.outline {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn.outline:hover {
+    background-color: #ffffff;
+    color: #0f0f0f;
+}
+
+/* =====================
+   PIXEL THEME
+===================== */
+body.pixel {
+    background-color: #1b1b1b;
+    color: #00ff9c;
+    font-family: 'Courier New', monospace;
+}
+
+body.pixel .hero h1 {
+    font-size: 3.5rem;
+    text-shadow: 4px 4px 0 #000;
+}
+
+body.pixel .subtitle {
+    color: #ffffff;
+}
+
+body.pixel .btn {
+    background-color: #00ff9c;
+    color: #000;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 #000;
+}
+
+body.pixel .btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #000;
+}
+
+body.pixel .btn.outline {
+    background: transparent;
+    color: #00ff9c;
+    border: 3px solid #00ff9c;
+}
+/* =====================
+   PIXEL PROJECT CARDS
+===================== */
+body.pixel .project-card {
+    border: 3px solid #00ff9c;
+    box-shadow: 6px 6px 0 #000;
+}
+
+body.pixel .tag {
+    border: 2px solid #00ff9c;
+}
+
+body.pixel .project-card:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #000;
+}
+
+/* =====================
+   PROJECTS SECTION
+===================== */
+.projects {
+    padding: 80px 10%;
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+}
+
+/* GRID */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* CARD */
+.project-card {
+    padding: 25px;
+    border: 2px solid #ffffff;
+    transition: 0.3s;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 15px;
+}
+
+/* TAGS */
+.tag {
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 5px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border: 1px solid #ffffff;
+}
+
+/* HOVER */
+.project-card:hover {
+    transform: translateY(-6px);
+}
+/* =====================
+   HORIZONTAL GLITCH ONLY
+===================== */
+.glitch {
+    position: relative;
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+    color: #00ff9c;
+    text-shadow: 4px 4px 0 #000;
+}
+
+/* COMMON LAYERS */
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+/* RED LAYER */
+.glitch::before {
+    color: red;
+    z-index: -1;
+    animation: glitch-x-1 2s infinite linear alternate-reverse;
+}
+
+/* BLUE LAYER */
+.glitch::after {
+    color: cyan;
+    z-index: -2;
+    animation: glitch-x-2 1.5s infinite linear alternate-reverse;
+}
+.glitch::before,
+.glitch::after {
+    opacity: 0;
+}
+
+.glitch:hover::before,
+.glitch:hover::after {
+    opacity: 1;
+}
+
+/* HORIZONTAL ONLY KEYFRAMES */
+@keyframes glitch-x-1 {
+    0% { transform: translateX(0); opacity: 1; }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-1px); }
+    80% { transform: translateX(1px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes glitch-x-2 {
+    0% { transform: translateX(0); opacity: 1; }
+    20% { transform: translateX(2px); }
+    40% { transform: translateX(-2px); }
+    60% { transform: translateX(1px); }
+    80% { transform: translateX(-1px); }
+    100% { transform: translateX(0); }
+}
+/* =====================
+   PROJECT CARD GLITCH (RED ONLY MOVES)
+===================== */
+.glitch-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* MAIN CONTENT */
+.glitch-inner {
+    position: relative;
+    transition: transform 0.2s;
+}
+
+/* GLITCH LAYERS */
+.glitch-card::before,
+.glitch-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* RED MOVING LAYER */
+.glitch-card::before {
+    border: 3px solid red;
+}
+
+/* BLUE STATIC LAYER */
+.glitch-card::after {
+    border: 3px solid cyan;
+}
+
+/* HOVER TRIGGER */
+.glitch-card:hover .glitch-inner {
+    animation: card-jitter 0.15s infinite;
+    animation-duration: 0.5s;
+}
+
+.glitch-card:hover::before {
+    opacity: 0.6;
+    animation: red-glitch-x 0.15s infinite;
+}
+
+/* BLUE SHOWS BUT DOES NOT MOVE */
+.glitch-card:hover::after {
+    opacity: 0.4;
+}
+
+
+/* HORIZONTAL ONLY */
+@keyframes card-jitter {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-1px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes red-glitch-x {
+    0% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    100% { transform: translateX(-2px); }
+}
+/* =====================
+   PROJECT IMAGES
+===================== */
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 15px;
+
+    border: 2px solid #ffffff;
+    transition: transform 0.3s;
+}
+
+/* Pixel theme image border */
+body.pixel .project-card img {
+    border: 3px solid #00ff9c;
+    image-rendering: pixelated;
+}
+
+.glitch-card:hover img {
+    filter: brightness(1.2) contrast(1.1);
+    transform: scale(1.035);
+}
+/* =====================
+   ABOUT ME SECTION
+===================== */
+.about {
+    padding: 100px 10%;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* Pixel theme */
+body.pixel .about h2 {
+    color: #00ff9c;
+}
